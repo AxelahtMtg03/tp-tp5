@@ -30,3 +30,26 @@ ENOENT signifie : "No such file or directory" — le fichier demandé n'existe p
 
 ### Question 1.5
 Code de requestListener() modifié avec gestion d'erreur en async/await
+
+### Question 1.6
+Les commandes `npm install cross-env --save` et 
+`npm install nodemon --save-dev` ont modifié le projet de la façon suivante :
+
+1. **Ajout de `nodemon` dans `devDependencies`** 
+   (dépendance de développement : utile seulement en local)
+2. **Création du dossier `node_modules/`** contenant tous les paquets installés
+3. **Création du fichier `package-lock.json`** qui verrouille les versions exactes
+4. J'ai aussi créé un fichier **`.gitignore`** pour exclure `node_modules/` 
+   du dépôt Git
+
+### Question 1.7
+Différences entre les scripts `http-dev` et `http-prod` :
+
+- **`http-dev`** lance le serveur avec nodemon, qui **surveille les fichiers** 
+  et **redémarre automatiquement** le serveur à chaque modification. 
+  `NODE_ENV` est fixé à `development`.
+- **`http-prod`** lance le serveur avec node classique, **sans redémarrage automatique**. 
+  `NODE_ENV` est fixé à `production`.
+
+Les deux utilisent `cross-env` pour définir la variable `NODE_ENV` de façon 
+portable.
