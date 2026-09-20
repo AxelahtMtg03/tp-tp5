@@ -53,3 +53,51 @@ Différences entre les scripts `http-dev` et `http-prod` :
 
 Les deux utilisent `cross-env` pour définir la variable `NODE_ENV` de façon 
 portable.
+
+### Question 1.8
+Codes HTTP reçus pour chacune des pages :
+
+- http://localhost:8000/index.html → **200 OK**
+- http://localhost:8000/random.html → **200 OK**
+- http://localhost:8000/ → **404 NOT FOUND**
+- http://localhost:8000/dont-exist → **404 NOT FOUND**
+
+### Question 2.1
+URLs des documentations des modules installés :
+
+- **express** : https://expressjs.com/
+- **http-errors** : https://github.com/jshttp/http-errors
+- **loglevel** : https://github.com/pimterry/loglevel
+- **morgan** : https://github.com/expressjs/morgan
+
+### Question 2.2
+Les trois routes fonctionnent :
+
+- `GET /` → renvoie la page `index.html` 
+- `GET /index.html` → renvoie la page `index.html` 
+- `GET /random/5` → renvoie une page HTML avec une liste de 5 nombres 
+  aléatoires 
+Les trois routes fonctionnent donc bien.
+
+### Question 2.3
+En-têtes renvoyés par Express (observés sur http://localhost:8000/) :
+
+- `accept-ranges: bytes`
+- `cache-control: public, max-age=0`
+- `connection: keep-alive`
+- `content-length: 335`
+- `content-type: text/html; charset=utf-8`
+- `date: Sun, 20 Sep 2026 11:39:51 GMT`
+- `etag: W/"14f-1a0bc3cb2e7"`
+- `keep-alive: timeout=5`
+
+**Nouveaux par rapport au serveur HTTP natif :**
+
+- `accept-ranges: bytes` → indique que le serveur supporte les requêtes 
+  partielles (utile pour le téléchargement/reprise de gros fichiers).
+- `cache-control: public, max-age=0` → directives de cache pour le navigateur.
+- `etag: W/"..."` → identifiant de version de la ressource (cache navigateur).
+
+### Question 2.4
+L'événement `listening` est déclenché quand le serveur a démarré et commence à écouter sur le port
+
