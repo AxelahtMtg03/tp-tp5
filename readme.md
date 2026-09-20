@@ -27,3 +27,6 @@ L'erreur affichée dans la console est :
 Le code d'erreur est **ENOENT** (Error NO ENTry).
 
 ENOENT signifie : "No such file or directory" — le fichier demandé n'existe pas.
+
+### Question 1.5
+Code de requestListener() modifié avec gestion d'erreur en async/await
