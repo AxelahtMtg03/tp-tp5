@@ -101,3 +101,18 @@ En-têtes renvoyés par Express (observés sur http://localhost:8000/) :
 ### Question 2.4
 L'événement `listening` est déclenché quand le serveur a démarré et commence à écouter sur le port
 
+### Question 2.5
+L'option activée par défaut qui redirige `/` vers `/index.html` est `index` (valeur par défaut : `"index.html"`). Elle fait partie du middleware `express.static()`.
+
+### Question 2.6
+- **Ctrl+R** : `style.css` → **304 Not Modified**
+- **Ctrl+Shift+R** : `style.css` → **200 OK**
+
+**Justification :** Express ajoute un `ETag` sur les fichiers statiques. En Ctrl+R, le navigateur envoie cet ETag au serveur ; si le fichier n'a pas changé, Express répond `304`. En Ctrl+Shift+R, le navigateur ignore le cache et retélécharge → `200`.
+
+### Question 2.7
+En **development** (`npm run express-dev`) : la stack trace complète 
+s'affiche sous le message d'erreur.
+
+En **production** (`npm run express-prod`) : la stack trace n'apparaît 
+pas.
